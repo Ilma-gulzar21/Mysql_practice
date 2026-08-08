@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+       <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Edit the Username</h1>
+    <div class="container">
+        <p><b> id: </b> <%= result[0]["id"] %> </p>
+        <p><b> Email: </b> <%= result[0]["email"] %> </p>
+         <form action="http://localhost:8080/users/<%= result[0]["id"] %>?_method=PATCH" method="post">
+        <p><b>Username: </b><textarea name="username"> <%= result[0]["username"] %> </textarea></p>
+        <p><b>Password: </b><input type="password" name = "userpassword"></p>
+        <button type = "submit" style="margin-left:60px;">UPDATE</button>
+     </form>
+    </div>
+</body>
+</html>

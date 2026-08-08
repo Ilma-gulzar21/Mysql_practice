@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <center>  <h1>All data here</h1> 
+    <table border="1">
+        <tr>
+           <th>id</th>
+           <th>Username</th>
+           <th>Email</th>
+           <th>Password</th> 
+        <tr>
+    <% for(let d of result) { %>
+<tr>
+    <td> <%= d.id %> </td>
+    <td> <%= d.username %> </td>
+    <td> <%= d.email %> </td>
+    <td> <%= d.password %> </td>
+    <td>
+ <form action="/users/<%= d.id %>" method="get">
+    <button type="submit">Update</button>
+</form>
+    </td>
+    <td>
+         <form method="post" action="/users/<%= d.id %>?_method=DELETE">
+        <button type = "submit"> Delete </button>
+    </form>
+    </td>
+</tr>
+  <%  } %>
+
+    </table>
+        <br>
+   <button>  <a href="/users/new"> insert a new user</a> </button>
+    </center>
+</body>
+</html>
